@@ -54,6 +54,7 @@
             <scope>test</scope>
         </dependency>
 
+        <!--
         <dependency>
             <groupId>com.vsware.timetable</groupId>
             <artifactId>solver-rooming</artifactId>
@@ -83,6 +84,8 @@
             <artifactId>solver-common</artifactId>
             <version>12.0-202</version>
         </dependency>
+
+        -->
     </dependencies>
 
     <build>
