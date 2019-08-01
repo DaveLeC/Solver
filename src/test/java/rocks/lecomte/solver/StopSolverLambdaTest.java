@@ -4,15 +4,16 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import org.junit.Before;
 import org.junit.Test;
+import rocks.lecomte.solver.lambda.StartSolverLambda;
+import rocks.lecomte.solver.lambda.StopSolverLambda;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class StopSolverLambdaTest {
     private SolverRequest sample;
-    private SolverService serviceFactory;
+
     private Context context;
 
     @Before
@@ -20,13 +21,12 @@ public class StopSolverLambdaTest {
         context = mock(Context.class);
         when(context.getLogger()).thenReturn(mock(LambdaLogger.class));
         sample = new SolverRequest();
-        serviceFactory = new SolverService(mock(SolverPersistenceService.class));
 
     }
 
     @Test
     public void canStopSolving() {
-        StartSolverLambda start = new StartSolverLambda(serviceFactory);
+        StartSolverLambda start = new StartSolverLambda();
 
         SolverResponse response = start.handleRequest(sample, context);
         String identifier = response.getIdentifier();

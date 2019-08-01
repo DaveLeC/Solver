@@ -22,7 +22,11 @@
             <artifactId>aws-java-sdk-dynamodb</artifactId>
             <version>1.11.600</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-ecs</artifactId>
+            <version>1.11.600</version>
+        </dependency>
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-lambda-java-core</artifactId>
@@ -50,6 +54,35 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.vsware.timetable</groupId>
+            <artifactId>solver-rooming</artifactId>
+            <version>12.0-202</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vsware.timetable</groupId>
+            <artifactId>solver-feasibility</artifactId>
+            <version>12.0-202</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vsware.timetable</groupId>
+            <artifactId>solver-schedule</artifactId>
+            <version>12.0-202</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vsware.timetable</groupId>
+            <artifactId>solver-teacher</artifactId>
+            <version>12.0-202</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vsware.timetable</groupId>
+            <artifactId>solver-common</artifactId>
+            <version>12.0-202</version>
+        </dependency>
     </dependencies>
 
     <build>

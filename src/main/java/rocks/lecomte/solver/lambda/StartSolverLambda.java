@@ -1,22 +1,23 @@
-package rocks.lecomte.solver;
+package rocks.lecomte.solver.lambda;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.fasterxml.jackson.core.JsonProcessingException;
+
 import lombok.AllArgsConstructor;
+import rocks.lecomte.solver.SolverRequest;
+import rocks.lecomte.solver.SolverResponse;
+import rocks.lecomte.solver.service.ServiceFactory;
 
 @AllArgsConstructor
 public class StartSolverLambda implements RequestHandler<SolverRequest, SolverResponse> {
-    private SolverService serviceFactory;
 
     public SolverResponse handleRequest(SolverRequest request, Context context){
         try {
             context.getLogger().log("Entering");
 
-            return new SolverResponse(serviceFactory.process(request));
+            return new SolverResponse(ServiceFactory.getSolverService().process(request));
 
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+
         } finally {
             context.getLogger().log("Exiting");
         }
